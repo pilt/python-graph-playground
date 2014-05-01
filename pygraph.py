@@ -44,7 +44,7 @@ def _paths(inner_graph, node, path, distance, dist_paths, seen, circular):
         if not circular and n in seen:  # prevent circular paths
             continue
         _paths(inner_graph, n, path[::] + [node], distance - 1,
-               dist_paths, seen, circular)
+               dist_paths, seen.copy(), circular)
 
 
 def format_paths(paths):
